@@ -8,6 +8,7 @@ class Book:
     """
     A book with a given path
     """
+
     def __init__(self, path):
         self.path = path
         self.__content = self.__read_contents()
@@ -27,7 +28,8 @@ class Book:
 
     def num_letters(self):
         """
-        Return a dictionary containing the numbe rof times a letter appears int he book's content
+        Return a dictionary containing the number of times
+        a letter appears in the book's content.
         """
         results = {}
         for char in self.__content:
@@ -45,7 +47,10 @@ class Book:
         """
         print(f"--- Begin report of {self.path} ---")
         print(f"{self.num_words()} words found in the document", end="\n\n")
-        for char in sorted(self.num_letters().items(), key=lambda x: x[1], reverse=True):
+        for char in sorted(
+                self.num_letters().items(),
+                key=lambda x: x[1],
+                reverse=True):
             print(f"The '{char[0]}' character was found {char[1]} times")
         print("--- End report ---", end="\n\n")
 
